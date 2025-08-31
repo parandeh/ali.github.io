@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali ParandehGheibi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2d5a5a 0%, #1a4040 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .left-section {
+            padding: 80px 60px 60px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .name {
+            font-size: 4rem;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 50px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .about-heading {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .about-heading::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .bio-text {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .right-section {
+            background: linear-gradient(135deg, #a8b8b8 0%, #7a8a8a 50%, #5a6a6a 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .linkedin-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #0077B5;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .linkedin-btn:hover {
+            background: #005582;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            border-radius: 15px;
+            margin: 60px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 1.1rem;
+            text-align: center;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>');
+            background-repeat: no-repeat;
+            background-position: center 40%;
+            background-size: 80px 80px;
+            padding-top: 120px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+            }
+
+            .left-section {
+                padding: 40px 30px;
+                order: 2;
+            }
+
+            .right-section {
+                order: 1;
+                min-height: 400px;
+            }
+
+            .name {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .title {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+            }
+
+            .about-heading {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+                margin-bottom: 20px;
+            }
+
+            .about-heading::after {
+                width: 100px;
+            }
+
+            .bio-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 300px;
+                margin: 40px auto;
+            }
+
+            .linkedin-btn {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-section {
+                padding: 30px 20px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .title {
+                font-size: 1.1rem;
+            }
+
+            .bio-text {
+                font-size: 0.95rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 250px;
+                margin: 30px auto;
+            }
+        }
+
+        /* Animations */
+        .container {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .name {
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .title {
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .about-heading {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .bio-text {
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="main-content">
+            <div class="left-section">
+                <h1 class="name">Ali ParandehGheibi</h1>
+                <p class="title">AI & Cybersecurity Expert</p>
+                
+                <h2 class="about-heading">ABOUT</h2>
+                
+                <div class="bio-text">
+                    <p>With over 13 years of experience building and shipping reliable, AI-enabled enterprise security software, I’ve spent my career navigating the intersection of deep tech and real-world complexity. From founding teams to established enterprises, I have consistently operated in 0→1 environments — where the product does not exist yet, the path is unclear, and success depends on wearing many hats and moving seamlessly across disciplines.</p>
+
+                    <p>Whether leading system architecture and ML design, shaping core product direction, UI/UX design, automating tests, tech-docs, fields enablement, supporting customers and FinOps — I have played end-to-end roles to turn early ideas into robust, production-grade systems.</p>
+
+                    <p>My work is grounded in deep academic training — a PhD from MIT in information theory, convex optimization, and network science — which equips me to tackle ill-defined, high-complexity problems with first-principles thinking. This foundation has translated into practical innovation, with over 40 U.S. and international patents granted across AI, systems, and security.</p>
+                        
+                    <p>Above all, I am driven by learning and impact: delivering measurable outcomes, building systems that make a difference, and fostering cultures where innovation, experimentation, and thoughtful risk-taking are the norm.</p>                    
+                </div>
+            </div>
+            
+            <div class="right-section">
+                <a href="https://linkedin.com/in/parandeh" class="linkedin-btn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <div class="profile-image">
+                    Professional Photo
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling for mobile
+        if (window.innerWidth <= 768) {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Smooth scroll behavior for mobile navigation
+                const links = document.querySelectorAll('a[href^="#"]');
+                for (let link of links) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
