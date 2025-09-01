@@ -135,44 +135,27 @@
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .contact-icon:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .contact-icon svg {
             width: 24px;
             height: 24px;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
         }
 
-        .email-icon {
-            background: #ea4335;
+        .contact-icon:hover svg {
             color: white;
-        }
-
-        .email-icon:hover {
-            background: #d33b2c;
-        }
-
-        .linkedin-icon {
-            background: #0077B5;
-            color: white;
-        }
-
-        .linkedin-icon:hover {
-            background: #005582;
-        }
-
-        .x-icon {
-            background: #000000;
-            color: white;
-        }
-
-        .x-icon:hover {
-            background: #333333;
         }
 
         .profile-image {
